@@ -20,8 +20,8 @@ def plot_conf(conf, show_class_assignment=False, x_max=20, y_max=20, x_min=-1, y
         cb.set_label('Confidence')
     plt.axis('scaled')
 
-def plot_epoch(net, data_loader, device, conf_view=None):
-    plt.figure(figsize=(18,7))
+def plot_epoch(net, data_loader, device, figsize = (18,7), conf_view=None):
+    plt.figure(figsize=figsize)
     with torch.no_grad():
         (inputs, targets) = next(iter(data_loader))
         inputs,targets = inputs.to(device), targets.to(device)
