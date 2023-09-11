@@ -6,8 +6,8 @@ import math
 import torch.nn as nn
 import torch.nn.functional as F
 
-from train.models.spectral_normalization.spectral_norm_conv_inplace import spectral_norm_conv
-from train.models.spectral_normalization.spectral_norm_fc import spectral_norm_fc
+from models.spectral_normalization.spectral_norm_conv_inplace import spectral_norm_conv
+from models.spectral_normalization.spectral_norm_fc import spectral_norm_fc
 
 
 class AvgPoolShortCut(nn.Module):
