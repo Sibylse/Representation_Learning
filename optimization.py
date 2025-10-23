@@ -75,7 +75,7 @@ class Optimizer:
         correct += predicted.eq(targets).sum().item()
         conf+=confBatch.sum().item()
     execution_time = (time.time() - start_time)
-    print('Loss: %.3f | Acc: %.3f%% (%d/%d) | Conf %.2f | time (s): %.2f'% (train_loss/len(self.trainloader), 100.*correct/self.n, correct, self.n, 100*conf/self.n, execution_time))
+    print('Loss: %.6f | Acc: %.3f%% (%d/%d) | Conf %.2f | time (s): %.2f'% (train_loss/len(self.trainloader), 100.*correct/self.n, correct, self.n, 100*conf/self.n, execution_time))
     return (train_loss/len(self.trainloader),100.*correct/self.n, 100*conf/self.n)
   
   def test_acc(self, net, criterion, data_loader, min_conf=0):
@@ -93,7 +93,7 @@ class Optimizer:
             correct += predicted[idx].eq(targets[idx]).sum().item()
             conf+=confBatch[idx].sum().item()
             total+= idx.sum()
-    print('Loss: %.3f | Acc: %.3f%% (%d/%d) | Conf %.2f'% (test_loss/max(len(data_loader),1), 100.*correct/total, correct, total, 100*conf/total))
+    print('Loss: %.6f | Acc: %.3f%% (%d/%d) | Conf %.2f'% (test_loss/max(len(data_loader),1), 100.*correct/total, correct, total, 100*conf/total))
     return (100.*correct/total, 100*conf/total)
   
   def test_grad_penalty(self, net, criterion, data_loader, gp_embed):
