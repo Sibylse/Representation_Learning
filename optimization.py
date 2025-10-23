@@ -76,7 +76,7 @@ class Optimizer:
         conf+=confBatch.sum().item()
     execution_time = (time.time() - start_time)
     print('Loss: %.3f | Acc: %.3f%% (%d/%d) | Conf %.2f | time (s): %.2f'% (train_loss/len(self.trainloader), 100.*correct/self.n, correct, self.n, 100*conf/self.n, execution_time))
-    return (100.*correct/self.n, 100*conf/self.n)
+    return (train_loss/len(self.trainloader),100.*correct/self.n, 100*conf/self.n)
   
   def test_acc(self, net, criterion, data_loader, min_conf=0):
     net.eval()
